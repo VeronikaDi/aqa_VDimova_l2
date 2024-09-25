@@ -1,0 +1,5 @@
+[ERROR|heartbeat_logger|L61] 2024-09-25T15:27:02+0300: ERROR: Heartbeat is 33s or more at 01:14:58
+[WARNING|heartbeat_logger|L58] 2024-09-25T15:27:02+0300: WARNING: Heartbeat between 31s and 33s at 01:35:10
+[ERROR|heartbeat_logger|L61] 2024-09-25T15:27:02+0300: ERROR: Heartbeat is 33s or more at 02:27:06
+[ERROR|heartbeat_logger|L61] 2024-09-25T15:27:02+0300: ERROR: Heartbeat is 33s or more at 03:39:11
+[ERROR|heartbeat_logger|L61] 2024-09-25T15:27:02+0300: ERROR: Heartbeat is 33s or more at 04:51:17
