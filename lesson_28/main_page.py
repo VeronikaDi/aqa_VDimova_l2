@@ -1,8 +1,7 @@
 from lesson_28.abstract_page import AbstractPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.ie.webdriver import WebDriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from lesson_28.abstract_element import AbstractElement
 
 
 class MainPage(AbstractPage):
@@ -12,19 +11,15 @@ class MainPage(AbstractPage):
 
     @property
     def sign_in_button(self):
-        wait = WebDriverWait(self._driver, 30)
-        return wait.until(
-            EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/app-root/app-global-layout/div/div/app-header/header/div/div/div[2]/button[2]"))
-        )
+        return AbstractElement(self._driver, (
+            By.XPATH, "/html/body/app-root/app-global-layout/div/div/app-header/header/div/div/div[2]/button[2]")
+                               ).wait_for_element_to_be_clickable()
 
     @property
     def registration_button(self):
-        wait = WebDriverWait(self._driver, 30)
-        return wait.until(
-            EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/ngb-modal-window/div/div/app-signin-modal/div[3]/button[1]"))
-        )
+        return AbstractElement(self._driver, (
+            By.XPATH, "/html/body/ngb-modal-window/div/div/app-signin-modal/div[3]/button[1]")
+                               ).wait_for_element_to_be_clickable()
 
     @property
     def name_input(self):

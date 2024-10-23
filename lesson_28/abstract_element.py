@@ -2,6 +2,8 @@ from abc import ABC
 
 from selenium.webdriver.ie.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class AbstractElement(ABC):
@@ -21,3 +23,7 @@ class AbstractElement(ABC):
 
     def get_text(self) -> str:
         return self.find_element().text
+
+    def wait_for_element_to_be_clickable(self, timeout: int = 30) -> WebElement:
+        wait = WebDriverWait(self.driver, timeout)
+        return wait.until(EC.element_to_be_clickable(self.locator))
