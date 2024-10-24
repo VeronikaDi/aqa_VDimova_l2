@@ -1,2 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","2371","test_tracking_package_status","","Thu Oct 24 22:55:46 EEST 2024","passed","Thu Oct 24 22:55:48 EEST 2024","TestPackageTracking","test_package_getting","",""
