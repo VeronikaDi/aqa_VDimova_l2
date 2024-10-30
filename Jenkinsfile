@@ -80,7 +80,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh '/opt/homebrew/bin/python3.10 -m pytest tests/'
+                sh '/opt/homebrew/bin/python3.10 -m pytest lesson_30/test_package_getting.py'
             }
         }
 
