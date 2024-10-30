@@ -43,9 +43,7 @@ pipeline {
                         echo "Checking pip version:"
                         /opt/homebrew/bin/python3.10 -m pip --version
 
-                        source ~/.bashrc
-
-                        if [ ! -d "$venvDir"]; then
+                        if [ ! -d "$venvDir" ]; then
                             echo "Creating virtual environment"
                             /opt/homebrew/bin/python3.10 -m venv $venvDir
                         else
@@ -60,7 +58,6 @@ pipeline {
             steps{
                 script {
                     sh """
-                        source ~/.bashrc
                         source venv/bin/activate
 
                         pip install --upgrade pip
