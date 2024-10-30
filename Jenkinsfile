@@ -68,7 +68,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/VeronikaDi/aqa_VDimova_l2.git'
+                git "https://github.com/VeronikaDi/aqa_VDimova_l2.git"
             }
         }
 
