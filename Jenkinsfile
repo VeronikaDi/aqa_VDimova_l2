@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        PYTHON_VERSION = '3.12'
+        PYTHON_VERSION = '3.10'
         VENV_DIR = 'venv'
     }
 
@@ -39,9 +39,9 @@ pipeline {
                     sh """
                         source ~/.bashrc
 
-                        if [ ! -d "\$(VENV_DIR) "]; then
+                        if [ ! -d "$venvDir"]; then
                             echo "Creating virtual environment"
-                            python3 -m venv \$(VENV_DIR)
+                            /opt/homebrew/bin/python3.10 -m venv $venvDir
                         else
                             echo "Virtual environment already exists."
                         fi
@@ -55,10 +55,10 @@ pipeline {
                 script {
                     sh """
                         source ~/.bashrc
-                        source ${VENV_DIR}/bin/activate
+                        source venv/bin/activate
 
                         pip install --upgrade pip
-                        pip install -r requirements.txt
+                        /opt/homebrew/bin/python3.10 -m pip install -r requirements.txt
 
                         pytest --maxfail=1 --disable-warnings -q lesson_30/test_package_getting.py
                     """
