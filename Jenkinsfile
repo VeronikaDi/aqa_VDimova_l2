@@ -80,7 +80,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh '/usr/local/bin/python3 -m python -m pytest tests/'
+                sh '/usr/local/bin/python3 -m pytest tests/'
             }
         }
 
