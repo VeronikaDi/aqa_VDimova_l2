@@ -74,13 +74,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh '/usr/local/bin/python3 -m pip install -r requirements.txt'
+                sh '/opt/homebrew/bin/python3.10 -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh '/usr/local/bin/python3 -m pytest tests/'
+                sh '/opt/homebrew/bin/python3.10 -m pytest tests/'
             }
         }
 
