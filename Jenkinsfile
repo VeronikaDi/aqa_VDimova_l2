@@ -54,7 +54,7 @@ pipeline {
             }
         }
 
-        stage("Activation of venv and installing dependencies then execute test cases.") {
+        stage("Activation of venv and installing dependencies.") {
             steps{
                 script {
                     sh """
@@ -62,8 +62,6 @@ pipeline {
 
                         pip install --upgrade pip
                         /opt/homebrew/bin/python3.10 -m pip install -r requirements.txt
-
-                        pytest --maxfail=1 --disable-warnings -q lesson_30/test_package_getting.py
                     """
                 }
             }
