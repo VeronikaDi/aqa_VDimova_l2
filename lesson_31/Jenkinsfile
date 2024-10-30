@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/VeronikaDi/aqa_VDimova_l2.git'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'python -m pytest tests/'
+            }
+        }
+        stage('Publish Test Results') {
+            steps {
+                junit 'test-results.xml'
+            }
+        }
+    }
+    post {
+        always {
+            emailext(
+                to: 'InsertYour@Mail.Here',
+                subject: "Testing results Jenkins Pipeline",
+                body: "Pipeline finished. Check results of the tests on page Build."
+            )
+        }
+    }
+}
