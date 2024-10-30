@@ -36,7 +36,13 @@ pipeline {
         stage("Creation of Python virtual environment") {
             steps{
                 script {
+                    def venvDir = 'venv'
                     sh """
+                        echo "Checking Python version:"
+                        /opt/homebrew/bin/python3.10 --version
+                        echo "Checking pip version:"
+                        /opt/homebrew/bin/python3.10 -m pip --version
+
                         source ~/.bashrc
 
                         if [ ! -d "$venvDir"]; then
