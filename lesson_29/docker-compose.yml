@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: HomaHum
+      POSTGRES_PASSWORD: homarunninghome
+      POSTGRES_DB: mytestdatabase
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: mytestdatabase
+      DB_USER: HomaHum
+      DB_PASSWORD: homarunninghome
+    command: pytest test_my_first_docker.py
